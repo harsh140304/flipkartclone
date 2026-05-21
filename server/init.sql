@@ -1,0 +1,61 @@
+CREATE TABLE "User" (
+    "id" UUID PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "email" TEXT UNIQUE NOT NULL,
+    "password" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "Product" (
+    "id" UUID PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "brand" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
+    "price" INTEGER NOT NULL,
+    "mrp" INTEGER NOT NULL,
+    "stock" INTEGER NOT NULL,
+    "rating" DOUBLE PRECISION NOT NULL,
+    "reviewCount" INTEGER NOT NULL,
+    "images" TEXT[] NOT NULL,
+    "specifications" JSONB NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "CartItem" (
+    "id" UUID PRIMARY KEY,
+    "userId" UUID NOT NULL REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "productId" UUID NOT NULL REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "quantity" INTEGER NOT NULL DEFAULT 1,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "CartItem_userId_productId_key" UNIQUE ("userId", "productId")
+);
+
+CREATE TABLE "Order" (
+    "id" UUID PRIMARY KEY,
+    "userId" UUID NOT NULL REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "status" TEXT NOT NULL DEFAULT 'CONFIRMED',
+    "subtotal" INTEGER NOT NULL,
+    "discount" INTEGER NOT NULL,
+    "deliveryCharges" INTEGER NOT NULL DEFAULT 0,
+    "total" INTEGER NOT NULL,
+    "shippingAddress" JSONB NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "OrderItem" (
+    "id" UUID PRIMARY KEY,
+    "orderId" UUID NOT NULL REFERENCES "Order"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "productId" UUID NOT NULL REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "quantity" INTEGER NOT NULL,
+    "priceAtPurchase" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "WishlistItem" (
+    "id" UUID PRIMARY KEY,
+    "userId" UUID NOT NULL REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "productId" UUID NOT NULL REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "WishlistItem_userId_productId_key" UNIQUE ("userId", "productId")
+);
