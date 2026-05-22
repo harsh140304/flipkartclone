@@ -61,7 +61,7 @@ const ProductDetail = () => {
     }
     const success = await addToCart(product.id, quantity);
     if (success) {
-      navigate('/cart');
+      navigate('/checkout');
     }
   };
 
