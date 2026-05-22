@@ -58,25 +58,45 @@ router.post('/', verifyToken, async (req, res) => {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const { shippingAddress } = req.body;
+    const { shippingAddress, buyNowItem } = req.body;
 
-    // Fetch cart items for user
-    const { rows: cartItems } = await client.query(`
-      SELECT c.*, p.price, p.mrp, p.stock, p.name 
-      FROM "CartItem" c 
-      JOIN "Product" p ON c."productId" = p.id 
-      WHERE c."userId" = $1
-    `, [req.userId]);
+    let orderItemsData = [];
+    
+    if (buyNowItem) {
+      // Direct Buy Now checkout
+      const { rows: productRows } = await client.query(
+        'SELECT id, price, mrp, stock, name FROM "Product" WHERE id = $1',
+        [buyNowItem.productId]
+      );
+      if (productRows.length === 0) {
+        await client.query('ROLLBACK');
+        return res.status(404).json({ error: 'Product not found' });
+      }
+      orderItemsData = [{
+        ...productRows[0],
+        productId: productRows[0].id,
+        quantity: buyNowItem.quantity
+      }];
+    } else {
+      // Fetch cart items for user
+      const { rows: cartItems } = await client.query(`
+        SELECT c.*, p.price, p.mrp, p.stock, p.name 
+        FROM "CartItem" c 
+        JOIN "Product" p ON c."productId" = p.id 
+        WHERE c."userId" = $1
+      `, [req.userId]);
 
-    if (cartItems.length === 0) {
-      await client.query('ROLLBACK');
-      return res.status(400).json({ error: 'Cart is empty' });
+      if (cartItems.length === 0) {
+        await client.query('ROLLBACK');
+        return res.status(400).json({ error: 'Cart is empty' });
+      }
+      orderItemsData = cartItems;
     }
 
     let subtotal = 0;
     let discount = 0;
 
-    for (const item of cartItems) {
+    for (const item of orderItemsData) {
       if (item.stock < item.quantity) {
         await client.query('ROLLBACK');
         return res.status(400).json({ error: `Not enough stock for ${item.name}` });
@@ -101,7 +121,7 @@ router.post('/', verifyToken, async (req, res) => {
     );
 
     // Insert OrderItems and Decrement stock
-    for (const item of cartItems) {
+    for (const item of orderItemsData) {
       const orderItemId = uuidv4();
       await client.query(
         `INSERT INTO "OrderItem" (id, "orderId", "productId", quantity, "priceAtPurchase")
@@ -115,8 +135,10 @@ router.post('/', verifyToken, async (req, res) => {
       );
     }
 
-    // Clear cart
-    await client.query('DELETE FROM "CartItem" WHERE "userId" = $1', [req.userId]);
+    // Clear cart only if it's a regular cart checkout
+    if (!buyNowItem) {
+      await client.query('DELETE FROM "CartItem" WHERE "userId" = $1', [req.userId]);
+    }
 
     await client.query('COMMIT');
 

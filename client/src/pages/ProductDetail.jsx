@@ -59,10 +59,7 @@ const ProductDetail = () => {
       navigate('/login');
       return;
     }
-    const success = await addToCart(product.id, quantity);
-    if (success) {
-      navigate('/checkout');
-    }
+    navigate('/checkout', { state: { buyNowItem: { product, quantity } } });
   };
 
   const toggleWishlist = async () => {

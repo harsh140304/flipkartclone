@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { placeOrder } from '../api';
 import toast from 'react-hot-toast';
@@ -15,6 +15,11 @@ const states = [
 const Checkout = () => {
   const { cartItems, loadCart } = useContext(CartContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const buyNowItem = location.state?.buyNowItem;
+
+  // If buyNowItem exists, we only checkout that single item. Otherwise checkout entire cart.
+  const checkoutItems = buyNowItem ? [buyNowItem] : cartItems;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -33,8 +38,8 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (cartItems.length === 0) {
-      toast.error('Cart is empty');
+    if (checkoutItems.length === 0) {
+      toast.error('No items to checkout');
       return;
     }
     if (formData.phone.length !== 10) {
@@ -48,8 +53,21 @@ const Checkout = () => {
 
     setLoading(true);
     try {
-      const { data } = await placeOrder({ shippingAddress: formData });
-      await loadCart(); // refresh cart (it should be empty now)
+      // Pass buyNowItem to API if it exists
+      const payload = { shippingAddress: formData };
+      if (buyNowItem) {
+        payload.buyNowItem = {
+          productId: buyNowItem.product.id,
+          quantity: buyNowItem.quantity
+        };
+      }
+      const { data } = await placeOrder(payload);
+      
+      // Only reload cart if we actually checked out the cart
+      if (!buyNowItem) {
+        await loadCart();
+      }
+      
       navigate(`/order-confirmation/${data.id}`, { state: { previewUrl: data.previewUrl } });
     } catch (error) {
       toast.error(error.response?.data?.error || 'Failed to place order');
@@ -59,7 +77,7 @@ const Checkout = () => {
   };
 
   let total = 0;
-  cartItems.forEach(item => {
+  checkoutItems.forEach(item => {
     total += item.product.price * item.quantity;
   });
 
@@ -190,8 +208,8 @@ const Checkout = () => {
               <h3 className="text-gray-500 font-medium uppercase">Order Summary</h3>
             </div>
             <div className="p-4 max-h-[300px] overflow-y-auto">
-              {cartItems.map(item => (
-                <div key={item.id} className="flex mb-4 text-sm">
+              {checkoutItems.map((item, idx) => (
+                <div key={item.id || idx} className="flex mb-4 text-sm">
                   <div className="w-12 h-12 mr-3 flex-shrink-0">
                     <img src={item.product.images[0]} alt="" className="h-full w-full object-contain" />
                   </div>
