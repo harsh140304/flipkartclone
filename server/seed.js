@@ -14,7 +14,7 @@ const productsData = [
     stock: 50,
     rating: 4.8,
     reviewCount: 15400,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/s23ultra_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/smartphone?lock=${100+i}`),
     specifications: { "RAM": "12GB", "Storage": "256GB", "Display": "6.8 inch AMOLED" }
   },
   {
@@ -27,7 +27,7 @@ const productsData = [
     stock: 20,
     rating: 4.9,
     reviewCount: 8200,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/macbookm2_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/macbook?lock=${110+i}`),
     specifications: { "RAM": "8GB", "Storage": "256GB SSD", "Processor": "Apple M2" }
   },
   {
@@ -40,7 +40,7 @@ const productsData = [
     stock: 0, // Out of stock example
     rating: 4.7,
     reviewCount: 4500,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/sonyxm5_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/headphones?lock=${120+i}`),
     specifications: { "Type": "Over-Ear", "Connectivity": "Bluetooth", "Battery": "30 Hours" }
   },
   {
@@ -53,7 +53,7 @@ const productsData = [
     stock: 15,
     rating: 4.6,
     reviewCount: 3200,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/lgoled_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/television?lock=${130+i}`),
     specifications: { "Resolution": "4K Ultra HD", "Display": "OLED", "Refresh Rate": "120Hz" }
   },
   {
@@ -66,7 +66,7 @@ const productsData = [
     stock: 25,
     rating: 4.8,
     reviewCount: 5100,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/ipadpro_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/ipad?lock=${140+i}`),
     specifications: { "Display": "11-inch", "Storage": "128GB", "Processor": "Apple M2" }
   },
 
@@ -81,7 +81,7 @@ const productsData = [
     stock: 100,
     rating: 4.2,
     reviewCount: 8900,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/levisjeans_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/jeans?lock=${150+i}`),
     specifications: { "Fit": "Slim", "Material": "Cotton Blend", "Color": "Blue" }
   },
   {
@@ -94,7 +94,7 @@ const productsData = [
     stock: 80,
     rating: 4.3,
     reviewCount: 12000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/pumashoes_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/sneakers?lock=${160+i}`),
     specifications: { "Type": "Running", "Outer Material": "Mesh", "Color": "Black" }
   },
   {
@@ -107,7 +107,7 @@ const productsData = [
     stock: 60,
     rating: 4.5,
     reviewCount: 6500,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/bibakurta_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/kurta,clothing?lock=${170+i}`),
     specifications: { "Type": "Kurta Set", "Material": "Cotton", "Occasion": "Festive" }
   },
   {
@@ -120,7 +120,7 @@ const productsData = [
     stock: 45,
     rating: 4.6,
     reviewCount: 4300,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/casiowatch_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/wristwatch?lock=${180+i}`),
     specifications: { "Dial Color": "Black", "Strap Material": "Leather", "Display": "Analog" }
   },
   {
@@ -133,7 +133,7 @@ const productsData = [
     stock: 0, // Out of stock example
     rating: 4.7,
     reviewCount: 3100,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/rayban_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/sunglasses?lock=${190+i}`),
     specifications: { "Style": "Aviator", "Frame Material": "Metal", "Lens Type": "UV Protected" }
   },
 
@@ -148,7 +148,7 @@ const productsData = [
     stock: 30,
     rating: 4.6,
     reviewCount: 25000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/wakefit_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/mattress?lock=${200+i}`),
     specifications: { "Size": "King", "Material": "Memory Foam", "Thickness": "8 Inch" }
   },
   {
@@ -161,7 +161,7 @@ const productsData = [
     stock: 15,
     rating: 4.1,
     reviewCount: 1800,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/solimosofa_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/sofa?lock=${210+i}`),
     specifications: { "Capacity": "3 Seater", "Material": "Fabric", "Color": "Grey" }
   },
   {
@@ -174,7 +174,7 @@ const productsData = [
     stock: 150,
     rating: 4.0,
     reviewCount: 45000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/pigeoninduction_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/cooktop?lock=${220+i}`),
     specifications: { "Type": "Induction", "Power": "1800W", "Control": "Push Button" }
   },
   {
@@ -187,7 +187,7 @@ const productsData = [
     stock: 200,
     rating: 4.5,
     reviewCount: 12000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/philipsbulb_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/lightbulb?lock=${230+i}`),
     specifications: { "Wattage": "12W", "Type": "LED", "Color": "Cool Day Light" }
   },
   {
@@ -200,7 +200,7 @@ const productsData = [
     stock: 80,
     rating: 4.2,
     reviewCount: 5600,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/nilkamalchair_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/chair?lock=${240+i}`),
     specifications: { "Material": "Plastic", "Set Size": "2", "Color": "Brown" }
   },
 
@@ -215,7 +215,7 @@ const productsData = [
     stock: 120,
     rating: 4.8,
     reviewCount: 85000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/atomichabits_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/book?lock=${250+i}`),
     specifications: { "Author": "James Clear", "Format": "Paperback", "Language": "English" }
   },
   {
@@ -228,7 +228,7 @@ const productsData = [
     stock: 90,
     rating: 4.7,
     reviewCount: 62000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/psychologymoney_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/book,money?lock=${260+i}`),
     specifications: { "Author": "Morgan Housel", "Format": "Paperback", "Language": "English" }
   },
   {
@@ -241,7 +241,7 @@ const productsData = [
     stock: 0, // Out of stock
     rating: 4.6,
     reviewCount: 41000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/ikigai_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/book,japan?lock=${270+i}`),
     specifications: { "Author": "Hector Garcia", "Format": "Hardcover", "Language": "English" }
   },
   {
@@ -254,7 +254,7 @@ const productsData = [
     stock: 150,
     rating: 4.6,
     reviewCount: 95000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/richdad_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/book,business?lock=${280+i}`),
     specifications: { "Author": "Robert T. Kiyosaki", "Format": "Mass Market Paperback", "Language": "English" }
   },
   {
@@ -267,7 +267,7 @@ const productsData = [
     stock: 75,
     rating: 4.9,
     reviewCount: 110000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/harrypotter_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/book,magic?lock=${290+i}`),
     specifications: { "Author": "J.K. Rowling", "Format": "Paperback", "Language": "English" }
   },
 
@@ -282,7 +282,7 @@ const productsData = [
     stock: 200,
     rating: 4.5,
     reviewCount: 32000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/yonexmavis_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/badminton?lock=${300+i}`),
     specifications: { "Type": "Nylon", "Speed": "Slow", "Quantity": "6 per tube" }
   },
   {
@@ -295,7 +295,7 @@ const productsData = [
     stock: 120,
     rating: 4.1,
     reviewCount: 15000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/niviafootball_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/football?lock=${310+i}`),
     specifications: { "Size": "5", "Material": "Rubber", "Stitching": "Machine Stitched" }
   },
   {
@@ -308,7 +308,7 @@ const productsData = [
     stock: 40,
     rating: 4.6,
     reviewCount: 8900,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/decathlondumbbell_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/dumbbell?lock=${320+i}`),
     specifications: { "Weight": "20kg", "Material": "Cast Iron", "Type": "Adjustable" }
   },
   {
@@ -321,7 +321,7 @@ const productsData = [
     stock: 300,
     rating: 4.4,
     reviewCount: 22000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/coscoball_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/tennisball?lock=${330+i}`),
     specifications: { "Sport": "Cricket/Tennis", "Quantity": "6", "Color": "Green" }
   },
   {
@@ -334,7 +334,7 @@ const productsData = [
     stock: 60,
     rating: 3.9,
     reviewCount: 14000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/koregym_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/gym?lock=${340+i}`),
     specifications: { "Material": "PVC", "Total Weight": "20kg", "Includes": "Plates, Rods" }
   },
 
@@ -349,7 +349,7 @@ const productsData = [
     stock: 80,
     rating: 4.4,
     reviewCount: 18000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/loreal_serum_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/serum,skincare?lock=${350+i}`),
     specifications: { "Volume": "30ml", "Skin Type": "All Skin Types", "Ingredient": "Hyaluronic Acid" }
   },
   {
@@ -362,7 +362,7 @@ const productsData = [
     stock: 150,
     rating: 4.5,
     reviewCount: 45000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/maybelline_fitme_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/makeup?lock=${360+i}`),
     specifications: { "Finish": "Matte", "Coverage": "Medium to Full", "Skin Type": "Normal to Oily" }
   },
   {
@@ -375,7 +375,7 @@ const productsData = [
     stock: 200,
     rating: 4.1,
     reviewCount: 35000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/mamaearth_oil_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/hairoil?lock=${370+i}`),
     specifications: { "Volume": "150ml", "Hair Type": "All Hair Types", "Key Ingredient": "Onion Oil" }
   },
   {
@@ -388,7 +388,7 @@ const productsData = [
     stock: 250,
     rating: 4.6,
     reviewCount: 52000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/nivea_cream_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/lotion?lock=${380+i}`),
     specifications: { "Volume": "200ml", "Skin Type": "All Skin Types", "Form": "Cream" }
   },
   {
@@ -401,7 +401,7 @@ const productsData = [
     stock: 120,
     rating: 4.3,
     reviewCount: 68000,
-    images: Array(4).fill(0).map((_, i) => `https://picsum.photos/seed/philips_dryer_${i}/400/400`),
+    images: Array(4).fill(0).map((_, i) => `https://loremflickr.com/400/400/hairdryer?lock=${390+i}`),
     specifications: { "Power": "1000W", "Settings": "2 Speed Settings", "Feature": "Compact Design" }
   }
 ];
