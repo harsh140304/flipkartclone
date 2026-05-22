@@ -61,9 +61,9 @@ const Login = () => {
                 onChange={handleChange}
                 required
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Enter Email/Mobile number"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
                 Enter Email/Mobile number
               </label>
             </div>
@@ -76,9 +76,9 @@ const Login = () => {
                 onChange={handleChange}
                 required
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Enter Password"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
                 Enter Password
               </label>
               <button

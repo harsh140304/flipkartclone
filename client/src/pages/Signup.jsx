@@ -71,10 +71,10 @@ const Signup = () => {
                 onChange={handleChange}
                 required
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Full Name"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
-                Full Name
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
+                Enter Full Name
               </label>
             </div>
 
@@ -86,27 +86,33 @@ const Signup = () => {
                 onChange={handleChange}
                 required
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Email Address"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
-                Email Address
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
+                Enter Email/Mobile number
               </label>
             </div>
 
             <div className="mb-6 relative">
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 required
-                minLength="6"
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Password"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
-                Password
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
+                Enter Password
               </label>
+              <button
+                type="button"
+                className="absolute right-0 top-2 text-fkBlue text-sm font-medium"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             </div>
 
             <div className="mb-8 relative">
@@ -118,9 +124,9 @@ const Signup = () => {
                 required
                 minLength="6"
                 className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-fkBlue transition-colors peer placeholder-transparent"
-                placeholder="Confirm Password"
+                placeholder=" "
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue">
+              <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
                 Confirm Password
               </label>
             </div>
