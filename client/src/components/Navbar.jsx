@@ -97,12 +97,10 @@ const Navbar = () => {
       {/* Categories Bar */}
       <div className="bg-white shadow px-4 py-2 sm:px-10 overflow-x-auto whitespace-nowrap hide-scrollbar flex space-x-6 text-sm font-medium text-fkTextPrimary border-b border-gray-200">
         <Link to="/" className="hover:text-fkBlue transition-colors">All</Link>
-        <Link to="/?category=Electronics" className="hover:text-fkBlue transition-colors">Electronics</Link>
-        <Link to="/?category=Fashion" className="hover:text-fkBlue transition-colors">Fashion</Link>
-        <Link to="/?category=Home%20%26%20Furniture" className="hover:text-fkBlue transition-colors">Home & Furniture</Link>
-        <Link to="/?category=Books" className="hover:text-fkBlue transition-colors">Books</Link>
-        <Link to="/?category=Sports" className="hover:text-fkBlue transition-colors">Sports</Link>
-        <Link to="/?category=Beauty" className="hover:text-fkBlue transition-colors">Beauty</Link>
+        <Link to="/?category=beauty" className="hover:text-fkBlue transition-colors">Beauty</Link>
+        <Link to="/?category=fragrances" className="hover:text-fkBlue transition-colors">Fragrances</Link>
+        <Link to="/?category=furniture" className="hover:text-fkBlue transition-colors">Furniture</Link>
+        <Link to="/?category=groceries" className="hover:text-fkBlue transition-colors">Groceries</Link>
       </div>
 
       {/* Mobile Search */}
