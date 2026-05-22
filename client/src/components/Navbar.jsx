@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
+import { FaShoppingCart, FaSearch, FaUser, FaStar, FaCouch, FaShoppingBasket, FaFire, FaGem, FaLaptop, FaMobileAlt, FaTshirt, FaHome } from 'react-icons/fa';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
 
@@ -95,12 +95,35 @@ const Navbar = () => {
       </nav>
 
       {/* Categories Bar */}
-      <div className="bg-white shadow px-4 py-2 sm:px-10 overflow-x-auto whitespace-nowrap hide-scrollbar flex space-x-6 text-sm font-medium text-fkTextPrimary border-b border-gray-200">
-        <Link to="/" className="hover:text-fkBlue transition-colors">All</Link>
-        <Link to="/?category=beauty" className="hover:text-fkBlue transition-colors">Beauty</Link>
-        <Link to="/?category=fragrances" className="hover:text-fkBlue transition-colors">Fragrances</Link>
-        <Link to="/?category=furniture" className="hover:text-fkBlue transition-colors">Furniture</Link>
-        <Link to="/?category=groceries" className="hover:text-fkBlue transition-colors">Groceries</Link>
+      <div className="bg-white shadow px-4 py-3 sm:px-10 overflow-x-auto whitespace-nowrap hide-scrollbar flex justify-center space-x-8 text-sm font-medium text-fkTextPrimary border-b border-gray-200">
+        <Link to="/" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaStar className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>All</span>
+        </Link>
+        <Link to="/?category=laptops" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaLaptop className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Laptops</span>
+        </Link>
+        <Link to="/?category=mobile-accessories" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaMobileAlt className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Accessories</span>
+        </Link>
+        <Link to="/?category=mens-shirts" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaTshirt className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Clothing</span>
+        </Link>
+        <Link to="/?category=home-decoration" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaHome className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Home Decor</span>
+        </Link>
+        <Link to="/?category=beauty" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaGem className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Beauty</span>
+        </Link>
+        <Link to="/?category=groceries" className="flex flex-col items-center hover:text-fkBlue transition-colors group">
+          <FaShoppingBasket className="text-xl mb-1 text-gray-600 group-hover:text-fkBlue" />
+          <span>Groceries</span>
+        </Link>
       </div>
 
       {/* Mobile Search */}
