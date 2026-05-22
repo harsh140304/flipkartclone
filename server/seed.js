@@ -406,7 +406,7 @@ const productsData = [
   }
 ];
 
-async function main() {
+async function seedDatabase() {
   console.log('Seeding database using raw SQL...');
   
   // Clear existing data (using cascading delete to keep it simple, but we'll clear tables manually to be safe)
@@ -442,11 +442,4 @@ async function main() {
   console.log(`Seeded ${productsData.length} products.`);
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    pool.end();
-  });
+module.exports = seedDatabase;

@@ -26,6 +26,17 @@ app.get('/', (req, res) => {
   res.send('Flipkart Clone API is running');
 });
 
+const seedDatabase = require('./seed');
+app.get('/api/seed', async (req, res) => {
+  try {
+    await seedDatabase();
+    res.send('Database seeded successfully');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Seeding failed: ' + error.message);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
