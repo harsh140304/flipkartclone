@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import SkeletonCard from '../components/SkeletonCard';
+import HeroCarousel from '../components/HeroCarousel';
+import OfferBanner from '../components/OfferBanner';
 import { fetchProducts } from '../api';
 
 const Home = () => {
@@ -13,6 +15,8 @@ const Home = () => {
   const queryParams = new URLSearchParams(location.search);
   const category = queryParams.get('category') || '';
   const search = queryParams.get('search') || '';
+
+  const isMainHomePage = !category && !search;
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -31,6 +35,8 @@ const Home = () => {
 
   return (
     <div className="p-4 sm:p-6 lg:px-10 min-h-screen">
+      {isMainHomePage && <HeroCarousel />}
+      
       {/* Header & Sort */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 bg-white p-4 shadow-sm rounded-sm">
         <div>
@@ -62,7 +68,15 @@ const Home = () => {
         {loading ? (
           Array(8).fill(0).map((_, i) => <SkeletonCard key={i} />)
         ) : products.length > 0 ? (
-          products.map(product => <ProductCard key={product.id} product={product} />)
+          <>
+            {products.slice(0, 8).map(product => <ProductCard key={product.id} product={product} />)}
+            {products.length > 8 && (
+              <div className="col-span-full">
+                <OfferBanner />
+              </div>
+            )}
+            {products.slice(8).map(product => <ProductCard key={product.id} product={product} />)}
+          </>
         ) : (
           <div className="col-span-full bg-white p-10 flex flex-col items-center justify-center text-center rounded-sm shadow-sm">
             <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/error-no-search-results_2353c5.png" alt="No results" className="w-64 mb-6" />

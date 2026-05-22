@@ -45,9 +45,62 @@ const App = () => {
               </Routes>
             </div>
             
-            {/* Simple Footer */}
-            <footer className="bg-fkTextPrimary text-white text-center py-6 mt-auto">
-              <p className="text-sm">© {new Date().getFullYear()} Flipkart Clone. Built for demonstration purposes.</p>
+            {/* Rich Footer */}
+            <footer className="bg-[#172337] text-white mt-auto pt-10 pb-6 px-10 text-xs font-medium">
+              <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-gray-600 pb-8">
+                <div>
+                  <h6 className="text-gray-400 mb-4 font-normal">ABOUT</h6>
+                  <ul className="space-y-2">
+                    <li><a href="#" className="hover:underline">Contact Us</a></li>
+                    <li><a href="#" className="hover:underline">About Us</a></li>
+                    <li><a href="#" className="hover:underline">Careers</a></li>
+                    <li><a href="#" className="hover:underline">Flipkart Stories</a></li>
+                    <li><a href="#" className="hover:underline">Press</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h6 className="text-gray-400 mb-4 font-normal">HELP</h6>
+                  <ul className="space-y-2">
+                    <li><a href="#" className="hover:underline">Payments</a></li>
+                    <li><a href="#" className="hover:underline">Shipping</a></li>
+                    <li><a href="#" className="hover:underline">Cancellation & Returns</a></li>
+                    <li><a href="#" className="hover:underline">FAQ</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h6 className="text-gray-400 mb-4 font-normal">CONSUMER POLICY</h6>
+                  <ul className="space-y-2">
+                    <li><a href="#" className="hover:underline">Cancellation & Returns</a></li>
+                    <li><a href="#" className="hover:underline">Terms Of Use</a></li>
+                    <li><a href="#" className="hover:underline">Security</a></li>
+                    <li><a href="#" className="hover:underline">Privacy</a></li>
+                    <li><a href="#" className="hover:underline">Sitemap</a></li>
+                  </ul>
+                </div>
+                <div className="border-l border-gray-600 pl-8">
+                  <h6 className="text-gray-400 mb-4 font-normal">Mail Us:</h6>
+                  <p className="text-gray-300 leading-relaxed mb-4">
+                    Flipkart Internet Private Limited, <br/>
+                    Buildings Alyssa, Begonia & <br/>
+                    Clove Embassy Tech Village, <br/>
+                    Outer Ring Road, Devarabeesanahalli Village, <br/>
+                    Bengaluru, 560103, <br/>
+                    Karnataka, India
+                  </p>
+                </div>
+              </div>
+              <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-300">
+                <div className="flex space-x-6 mb-4 sm:mb-0">
+                  <span className="flex items-center"><span className="text-yellow-400 mr-2">💼</span> Become a Seller</span>
+                  <span className="flex items-center"><span className="text-yellow-400 mr-2">⭐</span> Advertise</span>
+                  <span className="flex items-center"><span className="text-yellow-400 mr-2">🎁</span> Gift Cards</span>
+                  <span className="flex items-center"><span className="text-yellow-400 mr-2">❓</span> Help Center</span>
+                </div>
+                <p>© 2007-{new Date().getFullYear()} Flipkart.com Clone</p>
+                <div className="flex space-x-2">
+                  <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg" alt="Payment Methods" className="h-5" />
+                </div>
+              </div>
             </footer>
           </div>
         </Router>
