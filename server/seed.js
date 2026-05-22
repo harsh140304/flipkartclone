@@ -722,7 +722,7 @@ async function seedDatabase() {
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
       [
         id, p.name, p.description, p.brand, p.category, p.price, p.mrp, 
-        p.stock, p.rating, p.reviewCount, JSON.stringify(p.images), JSON.stringify(p.specifications)
+        p.stock, p.rating, p.reviewCount, p.images, JSON.stringify(p.specifications)
       ]
     );
   }
