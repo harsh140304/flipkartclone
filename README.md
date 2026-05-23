@@ -113,7 +113,3 @@ npm run dev
 - **Fault-Tolerant Email:** Implemented aggressive connection timeouts (1000ms) for Nodemailer to prevent server hangs in restricted environments (e.g., Render Free Tier SMTP blocking), gracefully failing the email while succeeding the order.
 
 ---
-
-<div align="center">
-  <b>Built for academic demonstration purposes.</b>
-</div>
