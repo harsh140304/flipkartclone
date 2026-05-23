@@ -90,7 +90,7 @@ const Signup = () => {
                 placeholder=" "
               />
               <label className="absolute left-0 transition-all text-gray-500 top-2 text-base peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-fkBlue peer-[:not(:placeholder-shown)]:-top-3.5 peer-[:not(:placeholder-shown)]:text-xs">
-                Enter Email/Mobile number
+                Enter Email
               </label>
             </div>
 
